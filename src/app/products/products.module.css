@@ -1,0 +1,8 @@
+.products a {
+    text-decoration: none;
+    color: #999;
+}
+
+.products a:hover {
+    font-weight: bolder;
+}
