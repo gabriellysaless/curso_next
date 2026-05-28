@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./page.module.css";
 
 export const metadata = {
@@ -9,8 +10,14 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <div className={styles.page}>
-        <h1>Hello World Next.js</h1>
+      <div>
+        <h1 className={styles.title}>Hello World Next.js</h1>
+        <Image
+          src="/images/city.jpg"
+          width={300}
+          height={400}
+          alt="Cidade à noite"
+        />
       </div>
     </>
   );
