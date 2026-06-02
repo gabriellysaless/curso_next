@@ -18,9 +18,6 @@ export default async function Todo({ params }) {
 
     return (
         <>
-            <Link href="/">
-                Voltar
-            </Link>
             <h1>Exibindo o to-do: {todo.id}</h1>
             <h3>Texto: {todo.title}</h3>
             
@@ -29,6 +26,10 @@ export default async function Todo({ params }) {
             <p>Comentário: dois... <Link href={`/todos/${todo.id}/comments/2`}>Detalhes</Link> </p>
 
             <p>Comentário: três... <Link href={`/todos/${todo.id}/comments/3`}>Detalhes</Link> </p>
+
+            <Link href="/todos">
+                Voltar
+            </Link>
         </>
     )
 }
