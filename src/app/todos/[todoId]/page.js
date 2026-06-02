@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams(){ /* O Next já cria páginas 'pré-geradas' antes (build time) */
     const res = await fetch('https://jsonplaceholder.typicode.com/todos/');
@@ -12,9 +13,13 @@ export async function generateStaticParams(){ /* O Next já cria páginas 'pré-
 export default async function Todo({ params }) {
     const { todoId } = await params;
 
-    const data = await fetch(`https://jsonplaceholder.typicode.com/todos/${todoId}`)
+    const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${todoId}`)
 
-    const todo = await data.json()
+    const todo = await res.json()
+
+    if (!todo.id) { /* Validação se existe o to-do ou não */
+        notFound();
+    }
 
     return (
         <>
